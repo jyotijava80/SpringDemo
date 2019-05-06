@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+           xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+        <context:component-scan base-package="org.jyoti.java" />
+	<!-- <bean id="triangle" class="org.jyoti.java.Triangle">
+	<property name="pointA" ref="pointA" />
+	<property name="pointB" ref="pointB" />
+	<property name="pointC" ref="pointC" /> 
+ 
+	</bean>-->
+<!-- <bean id="circle" class="org.jyoti.java.Circle" /> -->
+     
+     	<bean id="pointA" class="org.jyoti.java.Point">
+		<qualifier value="circleRelated" />
+		<property name="X" value="0" /> 
+		<property name="Y" value ="0"/>
+	</bean>
+	<bean id="pointB" class="org.jyoti.java.Point">
+		<property name="X" value="-20" />
+		<property name="Y" value ="0"/>
+	</bean>
+	<bean id="pointC" class="org.jyoti.java.Point">
+		<property name="X" value="0" />
+		<property name="Y" value ="20"/>
+	</bean>
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	<property name="basenames">
+	  <list>
+	    <value>MyMessages</value>
+	   </list>
+	
+	</property>
+	</bean>
+   
+	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="PointsConfiguration.properties" /> 
+	</bean> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> -->
+	 <context:annotation-config />
+	</beans>
